@@ -12,6 +12,8 @@ use App\Http\Controllers\{
     MasyarakatController,
     RegisterController,
     WebsiteController,
+    BeritaController,
+    WebBeritaController
 };
 /*
 |--------------------------------------------------------------------------
@@ -62,15 +64,26 @@ Route::get('/arsip/{id}/print', [ArsipController::class, 'print'])->name('arsip_
 
 Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.index');
 
+Route::get('/berita', [BeritaController::class, 'index'])->name('beritas.index');
+Route::get('/berita/create', [BeritaController::class, 'create'])->name('beritas.create');
+Route::post('/berita-store', [BeritaController::class, 'store'])->name('beritas.store');
+Route::get('/berita/{id}/edit', [BeritaController::class, 'edit'])->name('beritas.edit');
+Route::put('/berita/{id}', [BeritaController::class, 'update'])->name('beritas.update');
+Route::delete('/berita/{id}', [BeritaController::class, 'destroy'])->name('beritas.destroy');
+
 });
 
 
 // WEBSITE
 
-Route::get('/', [WebsiteController::class, 'index']);
+Route::get('/informasi', [WebsiteController::class, 'index']);
 Route::get('/informasidetail/{id}', [WebsiteController::class, 'show'])->name('informasidetail.show');
 
 Route::get('/caridata', [WebsiteController::class, 'caridata']);
 Route::get('/pencarian', [WebsiteController::class, 'search'])->name('pencarian');
 
+Route::get('/', [WebBeritaController::class, 'index'])->name('webberitas.index');
+Route::get('/beritas/{id}', [WebBeritaController::class, 'show'])->name('webberitas.show');
+
+Route::get('/tentang', [WebsiteController::class, 'tentang']);
 // WEBSITE

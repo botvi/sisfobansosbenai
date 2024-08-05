@@ -49,4 +49,8 @@ class WebsiteController extends Controller
 
         return view('pageweb.pencarian', compact('penerimaBantuan'));
     }
+
+    public function tentang(){
+        return view('pageweb.tentang');
+    }
 }

@@ -48,6 +48,12 @@
         <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Informasi</span>
         </li>
+        <li class="menu-item {{ Request::is('berita') ? 'active' : '' }}">
+            <a href="/berita" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-news"></i>
+                <div data-i18n="Analytics">Berita</div>
+            </a>
+        </li>
         <li class="menu-item {{ Request::is('informasi') ? 'active' : '' }}">
             <a href="/informasi" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-news"></i>
