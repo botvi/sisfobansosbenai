@@ -63,6 +63,7 @@ Route::get('/arsip/{id}/print', [ArsipController::class, 'print'])->name('arsip_
 
 
 Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.index');
+Route::get('/laporan/penerimaanbantuan', [LaporanController::class, 'laporan'])->name('laporan.penerimaanbantuan');
 
 Route::get('/berita', [BeritaController::class, 'index'])->name('beritas.index');
 Route::get('/berita/create', [BeritaController::class, 'create'])->name('beritas.create');

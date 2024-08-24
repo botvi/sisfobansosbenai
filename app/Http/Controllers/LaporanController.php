@@ -31,4 +31,12 @@ class LaporanController extends Controller
 
         return view('pageadmin.laporan.index', compact('penerimaBantuans', 'jenisBantuans', 'statusVerifikasi', 'jenisBantuan'));
     }
+
+    public function laporan()
+    {
+        // Fetch data with relationships
+        $penerimaBantuan = PenerimaBantuan::with(['masyarakat', 'bantuansosial'])->get();
+
+        return view('pageadmin.laporan.penerimaanbantuan', compact('penerimaBantuan'));
+    }
 }

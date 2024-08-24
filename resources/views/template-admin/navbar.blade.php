@@ -75,6 +75,12 @@
                 <div data-i18n="Analytics">Laporan</div>
             </a>
         </li>
+        <li class="menu-item {{ Request::is('laporan') ? 'active' : '' }}">
+            <a href="/laporan/penerimaanbantuan" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-report"></i>
+                <div data-i18n="Analytics">Laporan Penerima Bantuan</div>
+            </a>
+        </li>
         
     </ul>
 </aside>
