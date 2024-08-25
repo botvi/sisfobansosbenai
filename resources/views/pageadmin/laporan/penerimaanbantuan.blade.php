@@ -28,6 +28,12 @@
             #table th {
                 background-color: #f2f2f2;
             }
+
+            #signature {
+                text-align: right;
+                margin-top: 50px;
+                margin-right: 20px;
+            }
         }
 
         /* CSS tambahan untuk desain tabel */
@@ -52,30 +58,45 @@
         #table td {
             text-align: left;
         }
+
+        /* Signature placement */
+        #signature {
+            text-align: right;
+            margin-top: 50px;
+            margin-right: 20px;
+        }
     </style>
 </head>
 
 <body>
-    <table class="table table-borderless text-center"
-        style="border-width:0px!important; border:none; text-align:center; width:100%">
+    <table class="table table-borderless text-center" style="border-width:0px!important; text-align:center; width:100%">
         <tbody>
             <tr>
                 <td>
                     <h4>
+                        <img src="{{ asset('env') }}/bansos.png" alt="" width="100px" height="auto" srcset="">
+                    </h4>
+                </td>
+                <td>
+                    <h4>
                         PEMERINTAH DESA PULAU LANCANG<br />
-                        KECAMATAN BENAI <br>KABUPATEN KUANTAN SINGINGI</h4>
-
+                        KECAMATAN BENAI <br>KABUPATEN KUANTAN SINGINGI
+                    </h4>
+                </td>
+                <td>
+                    <h4>
+                        <img src="https://kuansing.go.id/uploads/images/LOGO_KUANTAN_SINGINGI.png" alt="" width="50px" height="auto" srcset="">
+                    </h4>
                 </td>
             </tr>
         </tbody>
     </table>
 
-    <div
-        style="background:#000000; cursor:text; height:4px; margin-bottom:0px; margin-left:0px; margin-right:0px; margin-top:0px; width:100%">
-        &nbsp;</div>
+    <div style="background:#000000; height:4px; margin:0; width:100%"></div>
+    <div style="background:#000000; height:2px; margin-top:2px; width:100%"></div>
 
-    <div style="background:#000000; cursor:text; height:2px; margin-top:2px; width:100%">&nbsp;</div>
-<h5>LAPORAN DATA PENERIMA BANTUAN SOSIAL</h5>
+    <h5 style="text-align:center; margin-top:20px;">LAPORAN DATA PENERIMA BANTUAN SOSIAL</h5>
+
     <table id="table">
         <thead>
             <tr>
@@ -90,18 +111,26 @@
         </thead>
         <tbody>
             @foreach($penerimaBantuan as $penerima)
-                <tr>
-                    <td>{{ $penerima->masyarakat->nama }}</td>
-                    <td>{{ $penerima->masyarakat->nik }}</td>
-                    <td>{{ $penerima->masyarakat->no_kk }}</td>
-                    <td>{{ $penerima->masyarakat->alamat }}</td>
-                    <td>{{ $penerima->bantuansosial->jenis_bantuan }}</td>
-                    <td>{{ $penerima->tanggal_penerimaan }}</td>
-                    <td>{{ $penerima->status_verifikasi }}</td>
-                </tr>
+            <tr>
+                <td>{{ $penerima->masyarakat->nama }}</td>
+                <td>{{ $penerima->masyarakat->nik }}</td>
+                <td>{{ $penerima->masyarakat->no_kk }}</td>
+                <td>{{ $penerima->masyarakat->alamat }}</td>
+                <td>{{ $penerima->bantuansosial->jenis_bantuan }}</td>
+                <td>{{ $penerima->tanggal_penerimaan }}</td>
+                <td>{{ $penerima->status_verifikasi }}</td>
+            </tr>
             @endforeach
         </tbody>
     </table>
+
+    <div id="signature">
+        <p>Benai, {{ \Carbon\Carbon::now()->format('d F Y') }}</p>
+        <p>Kepala Desa Pulau Lancang</p>
+        <br><br><br>
+        <p><strong>-------------------------</strong></p>
+    </div>
+
     <script>
         window.print();
     </script>
